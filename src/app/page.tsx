@@ -1,11 +1,13 @@
-import PhotoWall from "@/components/photo/PhotoWall"
+import PhotoWall from "@/components/PhotoWall"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full  flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <PhotoWall />
-      </main>
-    </div>
+    <main className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
+        Flickr Photo Wall
+      </h1>
+
+      <PhotoWall />
+    </main>
   )
 }
