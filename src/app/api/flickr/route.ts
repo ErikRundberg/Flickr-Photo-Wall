@@ -10,7 +10,8 @@ export async function GET(request: Request) {
   const API_URL = `https://www.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=${tags}`
 
   try {
-    const response = await fetch(API_URL)
+    const response = await fetch(API_URL, { cache: "no-store" })
+
     if (!response.ok) {
       throw new Error("Failed to fetch from Flickr API")
     }

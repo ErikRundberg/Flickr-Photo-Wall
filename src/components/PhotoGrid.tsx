@@ -5,10 +5,11 @@ import PhotoCard from "./PhotoCard"
 
 interface PhotoGridProps {
   tags: string
+  trigger: number
 }
 
-export default function PhotoGrid({ tags }: PhotoGridProps) {
-  const { photos, isLoading } = useFlickrFeed(tags)
+export default function PhotoGrid({ tags, trigger }: PhotoGridProps) {
+  const { photos, isLoading } = useFlickrFeed(tags, trigger)
 
   if (isLoading && photos.length === 0) {
     return (

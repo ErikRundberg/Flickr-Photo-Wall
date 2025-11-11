@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react"
 import { CleanPhoto } from "@/lib/flickr.types"
 
-const POLLING_INTERVAL = 15000
+const POLLING_INTERVAL = 10000
 
-export function useFlickrFeed(tags: string) {
+export function useFlickrFeed(tags: string, trigger: number) {
   const [photos, setPhotos] = useState<CleanPhoto[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
   const fetchPhotos = async () => {
+    setIsLoading(true)
     try {
       const response = await fetch(`/api/flickr?tags=${tags}`)
       if (!response.ok) throw new Error("Failed to fetch photos")
@@ -32,7 +33,7 @@ export function useFlickrFeed(tags: string) {
 
     // Cleanup on unmount or tag change
     return () => clearInterval(intervalId)
-  }, [tags])
+  }, [tags, trigger])
 
   return { photos, isLoading }
 }
