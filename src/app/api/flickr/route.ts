@@ -18,8 +18,8 @@ export async function GET(request: Request) {
 
     const data: FlickrResponse = await response.json()
 
-    const cleanPhotos: CleanPhoto[] = data.items.map((item, index) => ({
-      id: item.link + index,
+    const cleanPhotos: CleanPhoto[] = data.items.map((item) => ({
+      id: item.link,
       title: item.title || "Untitled",
       imageUrl: item.media.m.replace("_m.jpg", "_b.jpg"), // _b is 1024px, _m is 240px. Could optimize for mobile phones
       link: item.link,
