@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   description: "A dynamic photo wall from Flickr",
 }
 
+/**
+ * Root layout
+ * @param children Child components to render
+ */
 export default function RootLayout({
   children,
 }: {

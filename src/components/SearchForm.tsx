@@ -4,6 +4,10 @@ interface SearchFormProps {
   onSearch: (tags: string) => void
 }
 
+/**
+ * Form containing text field which invokes method on search
+ * @param onSearch The method to invoke when clicking on search
+ */
 export default function SearchForm({ onSearch }: SearchFormProps) {
   const [tags, setTags] = useState("")
 

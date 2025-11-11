@@ -8,9 +8,15 @@ interface PhotoGridProps {
   trigger: number
 }
 
+/**
+ * A grid of animated photos fetched from flickr with loading state implemented
+ * @param tags The tags to include when fetching images
+ * @param trigger A number that can be incremented to force re-fetch images
+ */
 export default function PhotoGrid({ tags, trigger }: PhotoGridProps) {
   const { photos, isLoading } = useFlickrFeed(tags, trigger)
 
+  // Loading screen
   if (isLoading && photos.length === 0) {
     return (
       <div className="text-center p-10">
@@ -19,6 +25,7 @@ export default function PhotoGrid({ tags, trigger }: PhotoGridProps) {
     )
   }
 
+  // Grid of photo cards with animations (spring/opacity) on enter/exit
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
       <AnimatePresence>

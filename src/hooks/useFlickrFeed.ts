@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react"
 import { CleanPhoto } from "@/lib/flickr.types"
 
-const POLLING_INTERVAL = 10000
+const POLLING_INTERVAL = 10000 // 10 seconds
 
+/**
+ * Hook to fetch photos and handle loading state from flickr
+ * @param tags The tags to include when fetching images
+ * @param trigger A number that can be incremented to force re-fetch images
+ */
 export function useFlickrFeed(tags: string, trigger: number) {
   const [photos, setPhotos] = useState<CleanPhoto[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -15,7 +20,6 @@ export function useFlickrFeed(tags: string, trigger: number) {
 
       const data: CleanPhoto[] = await response.json()
 
-      // We only take the first 12 for a clean grid
       setPhotos(data.slice(0, 12))
     } catch (error) {
       console.error(error)
@@ -28,7 +32,7 @@ export function useFlickrFeed(tags: string, trigger: number) {
     // Fetch photos immediately on tag change
     fetchPhotos()
 
-    // Start the polling
+    // Start polling
     const intervalId = setInterval(fetchPhotos, POLLING_INTERVAL)
 
     // Cleanup on unmount or tag change
