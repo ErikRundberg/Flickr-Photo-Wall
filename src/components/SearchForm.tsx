@@ -32,7 +32,7 @@ export default function SearchForm({ onSearch }: SearchFormProps) {
           value={tags}
           onChange={(e) => setTags(e.target.value)}
           className="flex-1 block w-full rounded-none rounded-l-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 py-2"
-          placeholder="e.g., landscape, sunset"
+          placeholder="e.g. landscape, sunset"
         />
         <button
           type="submit"
