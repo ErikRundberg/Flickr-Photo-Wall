@@ -2,11 +2,10 @@ import React, { useState } from "react"
 
 interface SearchFormProps {
   onSearch: (tags: string) => void
-  initialTags: string
 }
 
-export default function SearchForm({ onSearch, initialTags }: SearchFormProps) {
-  const [tags, setTags] = useState(initialTags)
+export default function SearchForm({ onSearch }: SearchFormProps) {
+  const [tags, setTags] = useState("")
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -33,7 +32,7 @@ export default function SearchForm({ onSearch, initialTags }: SearchFormProps) {
         />
         <button
           type="submit"
-          className="inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          className="inline-flex items-center rounded-r-md border border-l-0 border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 "
         >
           Search
         </button>
