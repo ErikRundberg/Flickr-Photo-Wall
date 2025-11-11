@@ -22,11 +22,10 @@ export default function PhotoCard({ photo }: PhotoCardProps) {
         <Image
           src={photo.imageUrl}
           alt={photo.title}
-          layout="fill"
-          objectFit="cover"
+          fill={true}
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
-          className="transition-all duration-500 ease-in-out group-hover:scale-110 opacity-0"
+          className="transition-all duration-500 ease-in-out group-hover:scale-110 opacity-0 object-cover"
         />
       </div>
 
