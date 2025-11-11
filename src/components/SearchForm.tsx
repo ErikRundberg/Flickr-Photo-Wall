@@ -2,10 +2,11 @@ import React, { useState } from "react"
 
 interface SearchFormProps {
   onSearch: (tags: string) => void
+  initialTags: string
 }
 
-export default function SearchForm({ onSearch }: SearchFormProps) {
-  const [tags, setTags] = useState("")
+export default function SearchForm({ onSearch, initialTags }: SearchFormProps) {
+  const [tags, setTags] = useState(initialTags)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
