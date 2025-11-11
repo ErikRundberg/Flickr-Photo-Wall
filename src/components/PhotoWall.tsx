@@ -16,7 +16,7 @@ export default function PhotoWall() {
 
   return (
     <>
-      <SearchForm onSearch={handleSearch} initialTags={tags} />
+      <SearchForm onSearch={handleSearch} />
 
       <PhotoGrid tags={tags} trigger={trigger} />
     </>
